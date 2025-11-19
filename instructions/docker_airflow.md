@@ -1,6 +1,6 @@
 # Docker & Airflow
 
-We're going to run our pipeline daily, for demonstration purposes, although this could be changed at a later point. Each day, we'll extract the top Reddit posts for `r/DataEngineering`. Because `LIMIT` is set to `None` in the Reddit extraction script, it should in theory return all posts from the past 24 hours. Feel free to play around with this.
+We're going to run our pipeline daily, for demonstration purposes, although this could be changed at a later point. Each day, we'll extract the top Reddit posts for the configured subreddit (set in `configuration.conf`). Because `LIMIT` is set to `None` in the configuration by default, it should in theory return all posts from the past 24 hours. Feel free to play around with this.
 
 ## Airflow
 
@@ -118,7 +118,7 @@ Read below for more details:
 
 1. `extract_reddit_data_task`
 
-    This is extracting Reddit data. Specifically, it's taking the top posts of the day from `r/DataEngineering` and collecting a few different attributes, like the number of comments. It's then saving this to a CSV within the /tmp folder.
+    This is extracting Reddit data. Specifically, it's taking the top posts from the configured subreddit (set in `configuration.conf`) and collecting a few different attributes, like the number of comments. It's then saving this to a CSV within the /tmp folder.
 
 1. `upload_to_s3`
 

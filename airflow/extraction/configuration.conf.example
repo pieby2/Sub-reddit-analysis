@@ -1,0 +1,21 @@
+ [aws_config]
+    bucket_name = YOUR_BUCKET_NAME
+    redshift_username = awsuser
+    redshift_password = YOUR_PASSWORD
+    redshift_hostname = YOUR_REDSHIFT_HOSTNAME
+    redshift_role = RedShiftLoadRole
+    redshift_port = 5439
+    redshift_database = dev
+    account_id = YOUR_ACCOUNT_ID
+    aws_region = us-east-1
+
+    [reddit_config]
+    secret = YOUR_REDDIT_SECRET
+    developer = YOUR_REDDIT_USERNAME
+    name = YOUR_APP_NAME
+    client_id = YOUR_REDDIT_CLIENT_ID
+
+    [reddit_extraction]
+    subreddit = dataengineering
+    time_filter = day
+    limit = None

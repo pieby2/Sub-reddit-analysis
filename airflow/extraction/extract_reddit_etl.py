@@ -9,9 +9,9 @@ from validation import validate_input
 
 """
 Part of Airflow DAG. Takes in one command line argument of format YYYYMMDD. 
-Script will connect to Reddit API and extract top posts from past day
-with no limit. For a small subreddit like Data Engineering, this should extract all posts
-from the past 24 hours.
+Script will connect to Reddit API and extract top posts from the configured subreddit
+based on settings in configuration.conf. The subreddit, time filter, and post limit
+are all configurable.
 """
 
 # Read Configuration File
@@ -24,10 +24,12 @@ parser.read(f"{script_path}/{config_file}")
 SECRET = parser.get("reddit_config", "secret")
 CLIENT_ID = parser.get("reddit_config", "client_id")
 
-# Options for extracting data from PRAW
-SUBREDDIT = "dataengineering"
-TIME_FILTER = "day"
-LIMIT = None
+# Options for extracting data from PRAW - read from configuration
+SUBREDDIT = parser.get("reddit_extraction", "subreddit")
+TIME_FILTER = parser.get("reddit_extraction", "time_filter")
+# Handle 'None' string from config file
+limit_value = parser.get("reddit_extraction", "limit")
+LIMIT = None if limit_value == "None" else int(limit_value)
 
 # Fields that will be extracted from Reddit.
 # Check PRAW documentation for additional fields.

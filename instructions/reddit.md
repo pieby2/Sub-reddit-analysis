@@ -1,6 +1,6 @@
 ## Reddit API
 
-For this project we'll be taking data from Reddit. Specifically, the `r/DataEngineering` sub. 
+For this project we'll be taking data from Reddit. You can configure which subreddit to analyze in the configuration file or using the Streamlit UI. 
 
 > Feel free to change the subreddit in the extract_reddit_etl.py script.
 

@@ -318,4 +318,4 @@ This project is for educational purposes. Please respect Reddit's API terms of s
 
 ---
 
-**Made with ❤️ for the Data Engineering community**
+
